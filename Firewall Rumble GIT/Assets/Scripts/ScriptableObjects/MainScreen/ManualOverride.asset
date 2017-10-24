@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0645261a4a2bf44ac1f3fd0d128e5c, type: 3}
+  m_Name: ManualOverride
+  m_EditorClassIdentifier: 
+  clearPrevious: 1
+  fileLocation: 
+  lines:
+  - line: Initialized Manual Firewall Version v3.1...
+    useFileLocation: 0
+  - line: Greetings [Insert Name Here], welcome to the Manual Firewall..
+    useFileLocation: 0
+  - line: Now since v3.0 with extra complicated algorithms!
+    useFileLocation: 0
+  - line: The Program will try to warn you for incoming threats..
+    useFileLocation: 0
+  - line: However the Program might not be able to keep up..
+    useFileLocation: 0
+  - line: So it is advised to watch out for yourself...
+    useFileLocation: 0
+  - line: Once you have seen a threat terminate it using your ALTF4-Blaster.exe...
+    useFileLocation: 0
+  - line: There will also be normal traffic coming through between the treats...
+    useFileLocation: 0
+  - line: Try to not to shoot these or they might become corrupted...
+    useFileLocation: 0
+  - line: Thanks for using Manual Firewall v3.1, good luck [Insert Name Here]...
+    useFileLocation: 0
+  - line: "Manual Firewall v3.1 a product by stickee \xA9"
+    useFileLocation: 0
