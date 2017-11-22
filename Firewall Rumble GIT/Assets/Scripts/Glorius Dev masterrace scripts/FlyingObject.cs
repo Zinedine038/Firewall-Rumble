@@ -11,35 +11,35 @@ public class FlyingObject : MonoBehaviour
     public bool downLoad = false;
     public bool goodFile = false;
     public CMDText lines;
+
+
+
     private void Update()
     {
         transform.position+=transform.forward*Time.deltaTime*speed;
         transform.LookAt(currentTarget);
-        print(Vector3.Distance(transform.position, player.position) < 2);
-        print(currentTarget);
         if(currentTarget==player && Vector3.Distance(transform.position,player.position)<2)
         {
             currentTarget=hardDrive;
         }
-        if(currentTarget==hardDrive &&  goodFile == false && Vector3.Distance(transform.position, hardDrive.position) < 2)
+        if(currentTarget==hardDrive && Vector3.Distance(transform.position, hardDrive.position) < 3)
         {
-            TextAnimator.instance.ProcessTextImmidiate(lines);
+            if(!goodFile)
+            {
+                if(lines!=null)
+                {
+                    TextAnimator.instance.ProcessTextImmidiate(lines);
+                    MotherBoard.instance.Corrupt(10f);
+                }
+            }
             Destroy(gameObject);
         }
     }
 
     private void OnDestroy()
     {
-        FindObjectOfType<Internet>().RemoveDownload();
-        if(goodFile)
-        {
-            //penalty!
-            print("shit");
-        }
-        else
-        {
+        //FindObjectOfType<Internet>().RemoveDownload();
 
-        }
     }
 
 }

@@ -15,7 +15,7 @@ public class TextAnimator : MonoBehaviour {
     private void Start()
     {
         instance=this;
-        StartCoroutine(Idle());
+        //StartCoroutine(Idle());
         StartCoroutine(Queue());
     }
 

@@ -21,23 +21,14 @@ public class Internet : MonoBehaviour
     public Transform origin;
     public Transform destination;
     private Color green;
-    List<Action> events = new List<Action>();
     private void Start()
     {
         green=download.color;
-        events.Add(VisitWebsiteNormal);
-        events.Add(VisitWebsiteDodgy);
-        events.Add(VisitWebsiteNormalDownload);
-        events.Add(VisitWebsiteFakeNews);
+        EventManager.instance.events.Add(VisitWebsiteNormal);
+        EventManager.instance.events.Add(VisitWebsiteDodgy);
+        EventManager.instance.events.Add(VisitWebsiteNormalDownload);
+        EventManager.instance.events.Add(VisitWebsiteFakeNews);
         StartCoroutine(SetDownloadSpeed());
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            DoRandomEvent();
-        }
     }
 
     #region Downloads
@@ -137,8 +128,5 @@ public class Internet : MonoBehaviour
     }
     #endregion
 
-    void DoRandomEvent()
-    {
-        events[UnityEngine.Random.Range(0,events.Count)].Invoke();
-    }
+
 }

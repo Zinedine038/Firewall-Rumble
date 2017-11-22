@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TeleportIgnore
+  - FxTemporaire
+  - projectile
+  - Bulletshoot
+  - File
+  - RebootButton
+  - StartButton
   layers:
   - Default
   - TransparentFX

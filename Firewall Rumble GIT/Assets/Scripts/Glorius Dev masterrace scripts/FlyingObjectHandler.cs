@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingObjectHandler : MonoBehaviour {
+public class FlyingObjectHandler : MonoBehaviour
+{
     public static FlyingObjectHandler instance;
     public Transform player;
 	// Use this for initialization

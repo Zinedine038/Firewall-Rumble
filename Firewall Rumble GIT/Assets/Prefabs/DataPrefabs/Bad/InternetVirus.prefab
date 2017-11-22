@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 4530824408812332}
   - component: {fileID: 95323827433885316}
   - component: {fileID: 114193655096343934}
+  - component: {fileID: 135626500068845468}
   m_Layer: 0
   m_Name: InternetVirus
-  m_TagString: Untagged
+  m_TagString: File
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206561120913086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5712912, y: -11.973995, z: -17.373396}
+  m_LocalPosition: {x: 72.02994, y: -17.731686, z: -32.09369}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4816257711841650}
@@ -217,3 +218,15 @@ MonoBehaviour:
   downLoad: 0
   goodFile: 0
   lines: {fileID: 11400000, guid: dcc6986be5ffcd44a8d1cf73def55d2a, type: 2}
+--- !u!135 &135626500068845468
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206561120913086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
