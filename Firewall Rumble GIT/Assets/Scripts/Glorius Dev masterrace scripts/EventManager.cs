@@ -30,11 +30,6 @@ public class EventManager : MonoBehaviour
             }
             else
             {
-                foreach(FlyingObject fo in FindObjectsOfType<FlyingObject>())
-                {
-                    Instantiate(killPart,fo.transform.position,fo.transform.rotation);
-                    Destroy(fo.gameObject);
-                }
                 break;
             }
         }

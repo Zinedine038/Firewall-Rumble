@@ -32,6 +32,11 @@ public class MotherBoard : MonoBehaviour {
 
     private void ShowEndGameScene()
     {
+        foreach (FlyingObject fo in FindObjectsOfType<FlyingObject>())
+        {
+            Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            Destroy(fo.gameObject);
+        }
         Dirtyfix.instance.ToggleGuns(false);
         gameActive = false;
         endGameObj.SetActive(true);
@@ -43,6 +48,11 @@ public class MotherBoard : MonoBehaviour {
 
     public void WonGame()
     {
+        foreach (FlyingObject fo in FindObjectsOfType<FlyingObject>())
+        {
+            Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            Destroy(fo.gameObject);
+        }
         endGameObjWon.SetActive(true);
         Dirtyfix.instance.ToggleGuns(false);
         pointer.enabled = false;
