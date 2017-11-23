@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/deepweb.unity
+  - enabled: 0
+    path: Assets/Deprecated/deepweb.unity
     guid: 105acb99eaada5d418215319f90633d5
+  - enabled: 1
+    path: Assets/DeepWebScene.unity
+    guid: 0f34a0264e47c77449803890f1a6a108

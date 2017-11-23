@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using VRTK;
+using System.Linq;
 
 public class MotherBoard : MonoBehaviour {
     public static MotherBoard instance;
-    public TextMeshPro corruptionText;
+    public TextMeshPro corruptionText,corruptionText2;
     public float corruptionLevel;
     public GameObject endGameObj;
     public VRTK_Pointer pointer;
@@ -15,19 +16,30 @@ public class MotherBoard : MonoBehaviour {
     public bool gameActive;
     public GameObject startbutton;
     public GameObject endGameObjWon;
+    public List<Warning> warningLights = new List<Warning>();
     private void Awake()
     {
         instance=this;
+        warningLights=FindObjectsOfType<Warning>().ToList();
     }
 
     public void Corrupt(float corruptionAmount)
     {
         corruptionLevel+=corruptionAmount;
         corruptionText.text=("System Corruption: " + corruptionLevel + "%");
-        if(corruptionLevel>=100)
+        if (corruptionLevel>=100)
         {
             ShowEndGameScene();
         }
+        foreach(Warning warning in warningLights)
+        {
+            warning.GiveWarning();
+            if (corruptionAmount >= 80)
+            {
+                warning.loop=true;
+            }
+        }
+
     }
 
     private void ShowEndGameScene()
@@ -42,7 +54,7 @@ public class MotherBoard : MonoBehaviour {
         endGameObj.SetActive(true);
         pointer.enabled=true;
         strp.enabled=true;
-
+        EventManager.instance.Stop();
         //set pointer true;    
     }
 
@@ -53,10 +65,15 @@ public class MotherBoard : MonoBehaviour {
             Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
             Destroy(fo.gameObject);
         }
+        gameActive=false;
         endGameObjWon.SetActive(true);
         Dirtyfix.instance.ToggleGuns(false);
-        pointer.enabled = false;
-        strp.enabled = false;
+        pointer.enabled = true;
+        strp.enabled = true;
+        foreach (Warning warning in warningLights)
+        {
+            warning.loop = false;
+        }
     }
 
     public void EndGame()

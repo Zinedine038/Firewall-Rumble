@@ -19,6 +19,11 @@ public class EventManager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
+    public void Stop()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator GameLoop()
     {
         while(true)
