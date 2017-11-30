@@ -14,6 +14,14 @@ public class EventManager : MonoBehaviour
 		instance=this;
 	}
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            DoRandomEvent();
+        }
+    }
+
     public void StartLoop()
     {
         StartCoroutine(GameLoop());
@@ -31,7 +39,7 @@ public class EventManager : MonoBehaviour
             if(MotherBoard.instance.gameActive==true)
             {
                 DoRandomEvent();
-                yield return new WaitForSeconds(UnityEngine.Random.Range(1.5f,2f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(1.2f,1.7f));
             }
             else
             {

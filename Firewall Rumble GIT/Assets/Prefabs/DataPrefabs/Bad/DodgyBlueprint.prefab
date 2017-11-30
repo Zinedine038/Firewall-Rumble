@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65570507158169134}
   - component: {fileID: 23999678173426802}
   - component: {fileID: 114059988962713484}
+  - component: {fileID: 54725631359855856}
   m_Layer: 0
   m_Name: DodgyBlueprint
   m_TagString: File
@@ -153,6 +154,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667266910499852}
   m_Mesh: {fileID: 4300000, guid: b30d39174d5efdc4c8430f0dedf75478, type: 3}
+--- !u!54 &54725631359855856
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195034946969528}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &65570507158169134
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -193,10 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec6505fc7a25d64d8c965efc87637ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TubeRims: []
   player: {fileID: 0}
   hardDrive: {fileID: 0}
   currentTarget: {fileID: 0}
-  speed: 15
+  speed: 10
   downLoad: 0
   goodFile: 0
   lines: {fileID: 11400000, guid: 7a27a1091b837d242848413f0a27be51, type: 2}
+  fileType: Dodgy Blueprint
+  toPlayer: 1

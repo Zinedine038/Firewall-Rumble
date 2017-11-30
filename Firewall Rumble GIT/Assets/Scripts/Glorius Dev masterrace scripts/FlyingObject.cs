@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlyingObject : MonoBehaviour
 {
+    public List<Transform> TubeRims;
     public Transform player;
     public Transform hardDrive;
     public Transform currentTarget;
@@ -11,28 +12,62 @@ public class FlyingObject : MonoBehaviour
     public bool downLoad = false;
     public bool goodFile = false;
     public CMDText lines;
-
-
+    public string fileType;
+    public bool toPlayer = true;
 
     private void Update()
     {
-        transform.position+=transform.forward*Time.deltaTime*speed;
-        transform.LookAt(currentTarget);
-        if(currentTarget==player && Vector3.Distance(transform.position,player.position)<2)
+
+    }
+    
+
+    public IEnumerator FollowRims()
+    {
+        foreach(Transform tube in TubeRims)
+        {
+            while(Vector3.Distance(transform.position,tube.position)>1)
+            {
+                transform.position += transform.forward * Time.deltaTime * speed;
+                transform.LookAt(tube.GetComponent<Renderer>().bounds.center);
+                if(Vector3.Distance(transform.position, tube.GetComponent<Renderer>().bounds.center)<1)
+                {
+                    break;
+                }
+                yield return null;
+            }
+        }
+        if(toPlayer)
         {
             currentTarget=hardDrive;
-        }
-        if(currentTarget==hardDrive && Vector3.Distance(transform.position, hardDrive.position) < 3)
-        {
-            if(!goodFile)
+            while(Vector3.Distance(transform.position, hardDrive.position) > 1)
             {
-                if(lines!=null)
+                transform.position += transform.forward * Time.deltaTime * speed;
+                transform.LookAt(hardDrive);
+                yield return null;
+            }
+            if (!goodFile)
+            {
+                if (lines != null)
                 {
                     TextAnimator.instance.ProcessTextImmidiate(lines);
                     MotherBoard.instance.Corrupt(10f);
                 }
             }
             Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Rim")
+        {
+            other.gameObject.GetComponent<Rim>().GlowRim();
         }
     }
 

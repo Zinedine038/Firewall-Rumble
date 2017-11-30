@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65872981734316852}
   - component: {fileID: 23608722914509762}
   - component: {fileID: 114769146989567318}
+  - component: {fileID: 54233214283771220}
   m_Layer: 0
   m_Name: Email
   m_TagString: File
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1248196416799804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40.035698, y: 3.1253905, z: -29.555988}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 0.22988361}
+  m_LocalScale: {x: 3, y: 3, z: 0.22988361}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,6 +83,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248196416799804}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54233214283771220
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248196416799804}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &65872981734316852
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -105,10 +121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec6505fc7a25d64d8c965efc87637ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TubeRims: []
   player: {fileID: 0}
   hardDrive: {fileID: 0}
   currentTarget: {fileID: 0}
-  speed: 15
+  speed: 10
   downLoad: 0
   goodFile: 0
   lines: {fileID: 0}
+  fileType: Email
+  toPlayer: 1

@@ -18,6 +18,8 @@ public class IM : MonoBehaviour {
     public Transform origin;
     public Transform desination;
 
+    public List<Transform> rims = new List<Transform>();
+
     private void Start()
     {
         EventManager.instance.events.Add(GetMessage);
@@ -28,8 +30,9 @@ public class IM : MonoBehaviour {
     {
         int rand = Random.Range(0, messages.Length-1);
         int rand2 = Random.Range(0, contactsNormal.Length - 1);
-        DisplayMessage(messages[rand], contactsNormal[rand2]);
-        FlyingObjectHandler.instance.Send(chat, origin, desination, true);
+        //DisplayMessage(messages[rand], contactsNormal[rand2]);
+        FlyingObjectHandler.instance.Send(chat, origin, desination, rims,true, true);
+        inbox.text = "New Message";
         unreadMessages++;
     }
 
@@ -37,8 +40,10 @@ public class IM : MonoBehaviour {
     {
         int rand = Random.Range(0, dodgyMessages.Length-1);
         int rand2 = Random.Range(0, contactsDodgy.Length - 1);
-        DisplayMessage(dodgyMessages[rand], contactsDodgy[rand2]);
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
+        //DisplayMessage(dodgyMessages[rand], contactsDodgy[rand2]);
+        GameObject virus = viruses[UnityEngine.Random.Range(0, viruses.Length)];
+        FlyingObjectHandler.instance.Send(virus, origin, desination,rims, true, true);
+        inbox.text = virus.GetComponent<FlyingObject>().fileType;
         unreadMessages++;
     }
 

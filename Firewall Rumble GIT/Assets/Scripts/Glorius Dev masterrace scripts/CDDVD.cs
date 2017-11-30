@@ -42,14 +42,14 @@ public class CDDVD : MonoBehaviour
     {
         int rand = Random.Range(0, dodgyCds.Length-1);
         DisplayMessage(dodgyCds[rand], cdArtistDodgy[rand]);
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
+        //FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
     }
 
     public void InsertDVDDodgy()
     {
         int rand = Random.Range(0, dodgyDvds.Length-1);
         DisplayMessage(dodgyDvds[rand]);
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
+        //FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
     }
 
     void DisplayMessage(string name, string byArtist = "")

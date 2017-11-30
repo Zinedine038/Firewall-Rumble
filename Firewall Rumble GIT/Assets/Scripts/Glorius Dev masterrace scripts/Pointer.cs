@@ -11,7 +11,7 @@ public class Pointer : MonoBehaviour {
     string hitString;
 	// Use this for initialization
 	void Start () {
-		vrtkce.TriggerTouchStart+=Click;
+		vrtkce.TouchpadPressed+=Click;
 	}
 
     private void Click(object sender, ControllerInteractionEventArgs e)

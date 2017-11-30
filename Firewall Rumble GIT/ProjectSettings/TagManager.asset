@@ -11,6 +11,8 @@ TagManager:
   - File
   - RebootButton
   - StartButton
+  - Bullet
+  - Rim
   layers:
   - Default
   - TransparentFX

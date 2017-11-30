@@ -23,13 +23,13 @@ public class WiFi : MonoBehaviour
     {
         wifiStatus.text = "WiFi Status: " + badStatuses[UnityEngine.Random.Range(0,badStatuses.Length-1)];
         connectedDevices.text = "Connected Device: " + pcNames[UnityEngine.Random.Range(0,pcNames.Length - 1)];
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
+        //FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
     }
 
     public void Recover()
     {
         wifiStatus.text = "WiFi Status: " + recoveringStatus[UnityEngine.Random.Range(0, recoveringStatus.Length - 1)];
         connectedDevices.text = "Connected Device: None";
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length-1)], origin, desination, true);
+        //FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length-1)], origin, desination, true);
     }
 }

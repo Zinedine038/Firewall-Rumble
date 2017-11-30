@@ -21,14 +21,14 @@ public class Internet : MonoBehaviour
     public Transform origin;
     public Transform destination;
     private Color green;
+    public List<Transform> rims = new List<Transform>();
     private void Start()
     {
         green=download.color;
         EventManager.instance.events.Add(VisitWebsiteNormal);
         EventManager.instance.events.Add(VisitWebsiteDodgy);
         EventManager.instance.events.Add(VisitWebsiteNormalDownload);
-        EventManager.instance.events.Add(VisitWebsiteFakeNews);
-        StartCoroutine(SetDownloadSpeed());
+        //StartCoroutine(SetDownloadSpeed());
     }
 
     #region Downloads
@@ -64,14 +64,17 @@ public class Internet : MonoBehaviour
     }
     public void DownloadDodgyFile()
     {
-        FlyingObjectHandler.instance.Send(dodgyFiles[UnityEngine.Random.Range(0, dodgyFiles.Length)], origin, destination, true);
+        GameObject DodgyFileTemp = dodgyFiles[UnityEngine.Random.Range(0, dodgyFiles.Length)];
+        FlyingObjectHandler.instance.Send(DodgyFileTemp, origin, destination,rims,true, true);
+        website.text=DodgyFileTemp.GetComponent<FlyingObject>().fileType;
         BeginDownload();
     }
     public void DownloadNormalFile()
     {
         GameObject normalFile = normalFiles[UnityEngine.Random.Range(0, normalFiles.Length)];
         normalFile.GetComponent<FlyingObject>().goodFile=true;
-        FlyingObjectHandler.instance.Send(normalFile, origin, destination, true);
+        FlyingObjectHandler.instance.Send(normalFile, origin, destination, rims, true, true);
+        website.text = normalFile.GetComponent<FlyingObject>().fileType;
         BeginDownload();
     }
     #endregion
@@ -79,11 +82,11 @@ public class Internet : MonoBehaviour
     #region Websites
     public void OpenWebsite(string url)
     {
-        website.text = ("Current Website: " + url);
+        //website.text = ("Current Website: " + url);
     }
     public void SendFakeNews()
     {
-        FlyingObjectHandler.instance.Send(fakeNews[UnityEngine.Random.Range(0, fakeNews.Length)], origin, destination);
+        //FlyingObjectHandler.instance.Send(fakeNews[UnityEngine.Random.Range(0, fakeNews.Length)], origin, destination, rims, true);
     }
     #endregion
 

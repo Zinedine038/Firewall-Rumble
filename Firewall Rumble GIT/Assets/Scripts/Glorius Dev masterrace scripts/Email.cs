@@ -19,7 +19,7 @@ public class Email : MonoBehaviour
     public GameObject[] viruses;
     public Transform origin;
     public Transform desination;
-
+    public List<Transform> rims = new List<Transform>();
     private void Start()
     {
         EventManager.instance.events.Add(YouGotMailNormal);
@@ -31,20 +31,22 @@ public class Email : MonoBehaviour
     {
         int rand = Random.Range(0, normalMailAdresses.Length-1);
         DisplayMail(normalMailAdresses[rand],normalSubjects[rand]);
-        SetInbox();
+        //SetInbox();
     }
 
     public void YouGotMailDodgy()
     {
         int rand = Random.Range(0, dodgyMailAdresses.Length-1);
         DisplayMail(dodgyMailAdresses[rand], dodgySubjects[rand]);
-        FlyingObjectHandler.instance.Send(viruses[UnityEngine.Random.Range(0, viruses.Length)], origin, desination, true);
-        SetInbox(true);
+        GameObject dodgyMail = viruses[UnityEngine.Random.Range(0, viruses.Length)];
+        FlyingObjectHandler.instance.Send(dodgyMail, origin, desination, rims, true, true);
+        emailInfo.text = dodgyMail.GetComponent<FlyingObject>().fileType;
+        //SetInbox(true);
     }
 
     void DisplayMail(string adress, string subject)
     {
-        emailInfo.text= (mailFrom + adress + "\n" + "Subject: " + subject);
+        //emailInfo.text= (mailFrom + adress + "\n" + "Subject: " + subject);
     }
 
     public void SetInbox(bool dodgy = false)

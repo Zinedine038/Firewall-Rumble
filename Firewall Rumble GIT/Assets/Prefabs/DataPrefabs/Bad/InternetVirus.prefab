@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 95323827433885316}
   - component: {fileID: 114193655096343934}
   - component: {fileID: 135626500068845468}
+  - component: {fileID: 54744796179066286}
   m_Layer: 0
   m_Name: InternetVirus
   m_TagString: File
@@ -183,6 +184,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573396661016056}
   m_Mesh: {fileID: 4300000, guid: 87e4f2890217f8946823b2d5a57301d6, type: 3}
+--- !u!54 &54744796179066286
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206561120913086}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!95 &95323827433885316
 Animator:
   serializedVersion: 3
@@ -211,13 +227,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec6505fc7a25d64d8c965efc87637ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TubeRims: []
   player: {fileID: 0}
   hardDrive: {fileID: 0}
   currentTarget: {fileID: 0}
-  speed: 15
+  speed: 10
   downLoad: 0
   goodFile: 0
   lines: {fileID: 11400000, guid: dcc6986be5ffcd44a8d1cf73def55d2a, type: 2}
+  fileType: Internet Virus
+  toPlayer: 1
 --- !u!135 &135626500068845468
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -17,10 +17,14 @@ public class MotherBoard : MonoBehaviour {
     public GameObject startbutton;
     public GameObject endGameObjWon;
     public List<Warning> warningLights = new List<Warning>();
+    private AudioSource audioSource;
+    public AudioClip corruptSound;
     private void Awake()
     {
         instance=this;
         warningLights=FindObjectsOfType<Warning>().ToList();
+        audioSource=GetComponent
+            <AudioSource>();
     }
 
     public void Corrupt(float corruptionAmount)
@@ -31,7 +35,8 @@ public class MotherBoard : MonoBehaviour {
         {
             ShowEndGameScene();
         }
-        foreach(Warning warning in warningLights)
+        audioSource.PlayOneShot(corruptSound);
+        foreach (Warning warning in warningLights)
         {
             warning.GiveWarning();
             if (corruptionAmount >= 80)

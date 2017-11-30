@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/DeepWebScene.unity
+- path: Assets/DeepWebScenne.unity
   isLoaded: 1
   isActive: 1
