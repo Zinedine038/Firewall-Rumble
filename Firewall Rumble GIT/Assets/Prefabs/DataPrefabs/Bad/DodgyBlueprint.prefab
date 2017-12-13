@@ -219,3 +219,4 @@ MonoBehaviour:
   lines: {fileID: 11400000, guid: 7a27a1091b837d242848413f0a27be51, type: 2}
   fileType: Dodgy Blueprint
   toPlayer: 1
+  vague: 1

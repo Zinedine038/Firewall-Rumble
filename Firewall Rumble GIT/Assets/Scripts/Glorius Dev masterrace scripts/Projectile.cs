@@ -37,8 +37,11 @@ public class Projectile : MonoBehaviour
                 }
                 Destroy(this.gameObject);
             }
-            Instantiate(particleGreen, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            if(!hit.collider.isTrigger)
+            {
+                Instantiate(particleGreen, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

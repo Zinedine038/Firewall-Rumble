@@ -6,6 +6,8 @@ using System;
 using System.Linq;
 
 public class InitializeGame : MonoBehaviour {
+
+    public static InitializeGame instance;
     public CMDTextEntry intro;
     public TextAnimator tm;
     public TextMeshPro text;
@@ -13,8 +15,10 @@ public class InitializeGame : MonoBehaviour {
     public Timer timerTuto;
     public Timer timerGame;
     public string timerTutoMessage, timerTutoCompleted, timerGameMessage, timerGameCompleted;
+    public int currentMinutes;
     public void StartGame()
     {
+        instance=this;
         runTimer = true;
         StartCoroutine(StartTimer(timerGame.minutes, timerGame.seconds, timerGame.milleseconds, timerGameMessage, timerGameCompleted,MotherBoard.instance.WonGame));
         tm.queue.Add(intro);
@@ -53,6 +57,7 @@ public class InitializeGame : MonoBehaviour {
                 break;
             }
             text.text = timerMessage + "\n" + m.ToString("D2") + ":" + s.ToString("D2") + ":" + ms.ToString("D2");
+            currentMinutes=m;
             yield return null;
         }
         action.Invoke();

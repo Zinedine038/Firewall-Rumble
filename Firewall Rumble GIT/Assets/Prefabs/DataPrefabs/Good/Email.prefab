@@ -127,7 +127,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   speed: 10
   downLoad: 0
-  goodFile: 0
+  goodFile: 1
   lines: {fileID: 0}
   fileType: Email
   toPlayer: 1
+  vague: 1

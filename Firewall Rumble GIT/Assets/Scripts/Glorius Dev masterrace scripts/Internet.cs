@@ -28,7 +28,8 @@ public class Internet : MonoBehaviour
         EventManager.instance.events.Add(VisitWebsiteNormal);
         EventManager.instance.events.Add(VisitWebsiteDodgy);
         EventManager.instance.events.Add(VisitWebsiteNormalDownload);
-        //StartCoroutine(SetDownloadSpeed());
+        EventManager.instance.middleGood=VisitWebsiteNormalDownload;
+        EventManager.instance.middleBad=VisitWebsiteDodgy;
     }
 
     #region Downloads

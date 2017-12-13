@@ -19,6 +19,7 @@ public class MotherBoard : MonoBehaviour {
     public List<Warning> warningLights = new List<Warning>();
     private AudioSource audioSource;
     public AudioClip corruptSound;
+    public AudioClip killParticleSound;
     private void Awake()
     {
         instance=this;
@@ -51,15 +52,18 @@ public class MotherBoard : MonoBehaviour {
     {
         foreach (FlyingObject fo in FindObjectsOfType<FlyingObject>())
         {
-            Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            GameObject killPart = Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            killPart.GetComponent<AudioSource>().mute = true;
             Destroy(fo.gameObject);
         }
+        audioSource.PlayOneShot(killParticleSound);
         Dirtyfix.instance.ToggleGuns(false);
         gameActive = false;
         endGameObj.SetActive(true);
         pointer.enabled=true;
         strp.enabled=true;
         EventManager.instance.Stop();
+        InitializeGame.instance.StopAllCoroutines();
         //set pointer true;    
     }
 
@@ -67,10 +71,12 @@ public class MotherBoard : MonoBehaviour {
     {
         foreach (FlyingObject fo in FindObjectsOfType<FlyingObject>())
         {
-            Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            GameObject killPart = Instantiate(EventManager.instance.killPart, fo.transform.position, fo.transform.rotation);
+            killPart.GetComponent<AudioSource>().mute=true;
             Destroy(fo.gameObject);
         }
-        gameActive=false;
+        audioSource.PlayOneShot(killParticleSound);
+        gameActive = false;
         endGameObjWon.SetActive(true);
         Dirtyfix.instance.ToggleGuns(false);
         pointer.enabled = true;

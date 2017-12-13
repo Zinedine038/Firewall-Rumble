@@ -24,6 +24,8 @@ public class Email : MonoBehaviour
     {
         EventManager.instance.events.Add(YouGotMailNormal);
         EventManager.instance.events.Add(YouGotMailDodgy);
+        EventManager.instance.rightBad=YouGotMailDodgy;
+        EventManager.instance.rightGood=YouGotMailNormal;
 
     }
 
@@ -31,6 +33,7 @@ public class Email : MonoBehaviour
     {
         int rand = Random.Range(0, normalMailAdresses.Length-1);
         DisplayMail(normalMailAdresses[rand],normalSubjects[rand]);
+        FlyingObjectHandler.instance.Send(normalEmail, origin, desination, rims, true, true);
         //SetInbox();
     }
 

@@ -131,3 +131,4 @@ MonoBehaviour:
   lines: {fileID: 0}
   fileType: Documents
   toPlayer: 1
+  vague: 1

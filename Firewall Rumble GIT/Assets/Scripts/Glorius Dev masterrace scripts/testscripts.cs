@@ -18,7 +18,7 @@ public class testscripts : MonoBehaviour {
     {
         if(other.transform.tag=="Rim")
         {
-            other.gameObject.GetComponent<Rim>().GlowRim();
+            other.gameObject.GetComponent<Rim>().GlowRim(new FlyingObject());
         }
     }
 }

@@ -35,14 +35,15 @@ public class Gun : MonoBehaviour
 
     public IEnumerator Fire()
     {
-        GameObject spawnedFakeBullet = Instantiate(placeHolderbullet,bulletReset.transform.position,bulletReset.transform.rotation);
-        spawnedFakeBullet.transform.SetParent(transform);
-        spawnedFakeBullet.transform.localPosition=Vector3.zero;
-        placeHolderbullet.transform.position=bulletReset.position;
+        //GameObject spawnedFakeBullet = Instantiate(placeHolderbullet,bulletReset.transform.position,bulletReset.transform.rotation);
+        //spawnedFakeBullet.transform.SetParent(transform);
+        //spawnedFakeBullet.transform.localPosition=Vector3.zero;
+        //placeHolderbullet.transform.position=bulletReset.position;
         gunAnimator.SetTrigger("Fire");
-        yield return new WaitForSeconds(gunFireAnimation.length-0.1f);
+        yield return null;
+        //yield return new WaitForSeconds(gunFireAnimation.length-0.1f);
         source.PlayOneShot(shootSFX);
-        Destroy(spawnedFakeBullet);
+        //Destroy(spawnedFakeBullet);
         GameObject spawnedBullet = Instantiate(bullet,firePoint.transform.position,firePoint.transform.rotation);
         Instantiate(fireParticle,firePoint.transform.position,firePoint.transform.rotation);
         Destroy(spawnedBullet,10f);

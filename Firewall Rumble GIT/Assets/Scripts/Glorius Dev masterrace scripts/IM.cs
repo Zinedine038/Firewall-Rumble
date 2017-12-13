@@ -24,6 +24,8 @@ public class IM : MonoBehaviour {
     {
         EventManager.instance.events.Add(GetMessage);
         EventManager.instance.events.Add(GetMessageDodgy);
+        EventManager.instance.leftGood=GetMessage;
+        EventManager.instance.leftBad=GetMessageDodgy;
     }
 
     public void GetMessage()

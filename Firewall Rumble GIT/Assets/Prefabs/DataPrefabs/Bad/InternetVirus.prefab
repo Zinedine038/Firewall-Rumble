@@ -237,6 +237,7 @@ MonoBehaviour:
   lines: {fileID: 11400000, guid: dcc6986be5ffcd44a8d1cf73def55d2a, type: 2}
   fileType: Internet Virus
   toPlayer: 1
+  vague: 0
 --- !u!135 &135626500068845468
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -15,7 +15,7 @@ public class Rim : MonoBehaviour {
         StartCoroutine("RandomColors");
 	}
 
-    private void Update()
+    public virtual void Update()
     {
         reference.SetColor("_EmissionColor", new Color(color.r,color.b,color.g,1.0f) *intensity) ;
     }
@@ -31,7 +31,7 @@ public class Rim : MonoBehaviour {
         }
     }
 
-    public void GlowRim()
+    public virtual void GlowRim(FlyingObject fo)
     {
         StopAllCoroutines();
         StartCoroutine("Glow");
@@ -39,10 +39,8 @@ public class Rim : MonoBehaviour {
 
     IEnumerator Glow()
     {
-        print("IkGlimWheeeeeeeeey");
         while(true)
         {
-            print("glimglimglimglim");
             intensity+=2*Time.deltaTime;
             if(intensity>=2)
             {
@@ -53,7 +51,6 @@ public class Rim : MonoBehaviour {
         }
         while (true)
         {
-            print("minderGlimminderGlimminderGlimminderGlim");
             intensity -= 2 * Time.deltaTime;
             if (intensity <= 0)
             {

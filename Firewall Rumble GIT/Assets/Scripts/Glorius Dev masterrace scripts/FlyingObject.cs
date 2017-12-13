@@ -14,7 +14,7 @@ public class FlyingObject : MonoBehaviour
     public CMDText lines;
     public string fileType;
     public bool toPlayer = true;
-
+    public bool vague;
     private void Update()
     {
 
@@ -67,7 +67,7 @@ public class FlyingObject : MonoBehaviour
     {
         if (other.transform.tag == "Rim")
         {
-            other.gameObject.GetComponent<Rim>().GlowRim();
+            other.gameObject.GetComponent<Rim>().GlowRim(this);
         }
     }
 

@@ -255,6 +255,7 @@ MonoBehaviour:
   lines: {fileID: 11400000, guid: e9c5162f66691fa48ae9242e0edaf1d3, type: 2}
   fileType: Bitcoin
   toPlayer: 1
+  vague: 1
 --- !u!135 &135961197563368700
 SphereCollider:
   m_ObjectHideFlags: 1
